@@ -20,6 +20,10 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation
         ITrackingPoint activeMark;
         ITrackingPoint currentMark;
         Stack<ITrackingPoint> marks = new Stack<ITrackingPoint>();
+        
+        // Flag to ignore selection changes caused by text modifications (e.g., IntelliCode completion)
+        // to prevent unintended mark activation
+        bool ignoreSelectionChanged;
 
         internal MarkSession(ITextView view, EmacsCommandsManager manager)
         {
@@ -27,16 +31,26 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation
 
             this.view = view;
             this.view.Selection.SelectionChanged += new EventHandler(Selection_SelectionChanged);
+            this.view.TextBuffer.Changed += new EventHandler<TextContentChangedEventArgs>(TextBuffer_Changed);
 
             this.activeMark = this.currentMark = CreateTrackingPoint(0);
         }
 
+        void TextBuffer_Changed(object sender, TextContentChangedEventArgs e)
+        {
+            // When text is modified (e.g., by IntelliCode completion), temporarily ignore selection changes
+            // to avoid activating mark mode unintentionally
+            ignoreSelectionChanged = true;
+        }
+
         void Selection_SelectionChanged(object sender, EventArgs e)
         {
-            if (!view.Selection.IsEmpty && !this.IsActive)
+            if (!view.Selection.IsEmpty && !this.IsActive && !ignoreSelectionChanged)
             {
                 PushMark(view.Selection.Start.Position.Position);
             }
+            // Reset the flag after handling selection change
+            ignoreSelectionChanged = false;
         }
 
         private void UpdateSelection()

@@ -190,10 +190,8 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation
                         // Handle cancelation keys
                         case (uint)VSConstants.VSStd97CmdID.Cut:
                         case (uint)VSConstants.VSStd97CmdID.Copy:
-                            Deactivate(false);
-                            break;
                         case (uint)VSConstants.VSStd97CmdID.Delete:
-                            Deactivate();
+                            Deactivate(false);
                             break;
                     }
                 }

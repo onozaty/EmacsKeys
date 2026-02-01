@@ -6,15 +6,16 @@ using System.Globalization;
 namespace Microsoft.VisualStudio.Editor.EmacsEmulation.Commands
 {
     /// <summary>
-    /// Recompute the indentation for the current line, delete the indentation on the line, and re-indent it.  
-    /// When this command terminates, the caret is between the same two characters it was between when the command started.  
-    /// However, if it was in the indentation, then the caret moves to be after the newly inserted indentation.  
+    /// Recompute the indentation for the current line, delete the indentation on the line, and re-indent it.
+    /// When this command terminates, the caret is between the same two characters it was between when the command started.
+    /// However, if it was in the indentation, then the caret moves to be after the newly inserted indentation.
     /// The indentation inserted is language context dependent (smart).
     /// If there's a multi line selection, then no-op.
-    /// 
-    /// Keys: Tab
+    ///
+    /// Note: Tab binding removed to allow IntelliCode whole-line completion to work.
+    /// IntelliCode uses Tab-Tab to accept suggestions, and there's no public API to detect
+    /// when IntelliCode suggestions are active.
     /// </summary>
-    [EmacsCommand(VSConstants.VSStd2KCmdID.TAB, UndoName = "Indent")]
     internal class LineIndentCommand : EmacsCommand
     {
         internal override void Execute(EmacsCommandContext context)

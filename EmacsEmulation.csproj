@@ -263,6 +263,7 @@
     <Compile Include="Utilities\CopyFileConfirmationDialog.Designer.cs">
       <DependentUpon>CopyFileConfirmationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\InteractiveRoleKeyProcessorProvider.cs" />
     <Compile Include="Utilities\InteractiveRoleWorkAroundFilter.cs" />
     <Compile Include="Utilities\NativeMethods.cs" />
     <Compile Include="Utilities\UniversalArgumentSession.cs" />

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-    <Metadata>
-        <Identity Id="EmacsEmulation.9CC71440-2082-4459-BFD0-193CE3C56471" Version="6.1" Language="en-US" Publisher="Justin Clareburt" />
-        <DisplayName>Emacs Emulation</DisplayName>
-        <Description xml:space="preserve">Provides basic support for Emacs keybindings and text editing commands.</Description>
-        <License>LICENSE.rtf</License>
-        <ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
-        <Icon>Resources\EmacsVs_Icon_128x.png</Icon>
-        <PreviewImage>Emacs.png</PreviewImage>
-        <Tags>emacs</Tags>
-    </Metadata>
-    <Installation InstalledByMsi="false" AllUsers="false">
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, )">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-    </Installation>
-    <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,]" />
-    </Dependencies>
-    <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
-    </Assets>
-    <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
-    </Prerequisites>
+	<Metadata>
+		<Identity Id="EmacsEmulation.onozaty" Version="6.1.3" Language="en-US" Publisher="onozaty" />
+		<DisplayName>Emacs Emulation (Customized)</DisplayName>
+		<Description xml:space="preserve">Provides basic support for Emacs keybindings and text editing commands.</Description>
+		<License>LICENSE.rtf</License>
+		<ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
+		<Icon>Resources\EmacsVs_Icon_128x.png</Icon>
+		<PreviewImage>Emacs.png</PreviewImage>
+		<Tags>emacs</Tags>
+	</Metadata>
+	<Installation InstalledByMsi="false" AllUsers="false">
+		<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, )">
+			<ProductArchitecture>amd64</ProductArchitecture>
+		</InstallationTarget>
+	</Installation>
+	<Dependencies>
+		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,]" />
+	</Dependencies>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+		<Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
+	</Assets>
+	<Prerequisites>
+		<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
+	</Prerequisites>
 </PackageManifest>
 
